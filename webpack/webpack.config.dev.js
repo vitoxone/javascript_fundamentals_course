@@ -13,14 +13,15 @@ module.exports = merge(common, {
 },
   output:{
     filename: '[name].js',
-    path: __dirname + '/build',
+    path: Path.resolve(__dirname, 'build/'),    
     chunkFilename: '[id].[chunkhash].js'
 },
   devServer: {
     port: 8080,
-    contentBase: Path.resolve(__dirname, '../src'),
+    contentBase: Path.resolve(__dirname, 'build/'),
     inline: true,
-    hot: true,
+    disableHostCheck: true,
+    open: true
   },
   plugins: [
     new Webpack.DefinePlugin({
